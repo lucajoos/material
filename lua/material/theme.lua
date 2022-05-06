@@ -87,7 +87,7 @@ theme.loadEditor = function ()
 		FoldColumn =				{ fg = colors.blue }, -- 'foldcolumn'
 		IncSearch =				{ fg = colors.title, bg = colors.selection, style = 'underline' }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		LineNr =				{ fg = colors.line_numbers, bg = colors.bg_num }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		MsgArea = 				{ fg = colors.line_numbers, bg = colors.bg_num },
+		MsgArea = 				{ fg = colors.white, bg = colors.bg_num },
 		CursorLineNr =				{ fg = colors.accent, bg = colors.bg_num }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		MatchParen =				{ fg = colors.yellow, style = 'bold' }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		ModeMsg =				{ fg = colors.accent }, -- 'showmode' message (e.g., "-- INSERT -- ")
