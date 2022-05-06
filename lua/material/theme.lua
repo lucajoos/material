@@ -1,4 +1,4 @@
-local colors = require('material.colors')
+local colors = require('material.colors', style = 'bold')
 local styles = require('material.styles')
 local config = require('material.config').options
 
@@ -8,8 +8,9 @@ theme.loadSyntax = function ()
     -- Syntax highlight groups
 
 	local syntax = {
+    Text = { fg = colors.white },
 		Type =						{ fg = colors.purple }, -- int, long, char, etc.
-		StorageClass =				{ fg = colors.cyan }, -- static, register, volatile, etc.
+		StorageClass =				{ fg = colors.green }, -- static, register, volatile, etc.
 		Structure =					{ fg = colors.puple }, -- struct, union, enum, etc.
 		Comment =					{ fg = colors.comments, style = styles.comments }, -- italic comments
 		SpecialComment =			{ fg = colors.comments, style = styles.comments }, -- special things inside a comment
@@ -17,23 +18,23 @@ theme.loadSyntax = function ()
 		Constant =					{ fg = colors.yellow }, -- any constant
 		Character =					{ fg = colors.orange }, -- any character constant: 'c', '\n'
 		Number =					{ fg = colors.orange }, -- a number constant: 5
-		Boolean =					{ fg = colors.orange }, -- a boolean constant: TRUE, false
+		Boolean =					{ fg = colors.purple, style = 'italic' }, -- a boolean constant: TRUE, false
 		Float =						{ fg = colors.orange }, -- a floating point constant: 2.3e10
-		Function =					{ fg = colors.blue, style = styles.functions }, -- italic funtion names
-		Identifier =				{ fg = colors.fg, style = styles.variables }; -- any variable name
+		Function =					{ fg = colors.blue }, -- italic funtion names
+		Identifier =				{ fg = colors.white }; -- any variable name
 		Statement =					{ fg = colors.cyan }, -- any statement
 		Keyword =					{ fg = colors.purple, style = styles.keywords }, -- italic for, do, while, etc.
-		Label =						{ fg = colors.purple }, -- case, default, etc.
+		Label =						{ fg = colors.purple, style = 'italic' }, -- case, default, etc.
 		Operator =					{ fg = colors.cyan }, -- sizeof", "+", "*", etc.
-		Exception =					{ fg = colors.red }, -- try, catch, throw
+		Exception =					{ fg = colors.purple, style = 'italic' }, -- try, catch, throw
 		PreProc =					{ fg = colors.purple }, -- generic Preprocessor
-		Include =					{ fg = colors.blue }, -- preprocessor #include
+		Include =					{ fg = colors.purple, style = 'italic' }, -- preprocessor #include
 		Define =					{ fg = colors.pink }, -- preprocessor #define
-		Macro =						{ fg = colors.cyan }, -- same as Define
+		Macro =						{ fg = colors.pink }, -- same as Define
 		Typedef =					{ fg = colors.red }, -- A typedef
 		PreCondit =					{ fg = colors.cyan }, -- preprocessor #if, #else, #endif, etc.
 		Repeat =					{ fg = colors.purple, style = styles.keywords }, -- italic any other keyword
-		String =					{ fg = colors.green, style= styles.strings }, -- any string
+		String =					{ fg = colors.green }, -- any string
 		Special =					{ fg = colors.red }, -- any special symbol
 		SpecialChar =				{ fg = colors.disabled }, -- special character in a constant
 		Tag =						{ fg = colors.red }, -- you can use CTRL-] on this
@@ -67,8 +68,8 @@ theme.loadEditor = function ()
     -- Editor highlight groups
 
 	local editor = {
-		Normal =				{ fg = colors.fg, bg = colors.bg }, -- normal text and background color
-		NormalNC =				{ fg = colors.fg, bg = colors.bg_nc }, -- normal text and background color
+		Normal =				{ fg = colors.fg }, -- normal text and background color
+		NormalNC =				{ fg = colors.fg }, -- normal text and background color
 		NormalFloat =			{ fg = colors.fg, bg = colors.float }, -- normal text and background color for floating windows
 		NormalContrast =		{ fg = colors.fg, bg = colors.bg_alt }, -- a help group for contrast fileypes
 		FloatBorder =			{ fg = colors.border, bg = colors.float }, -- floating window border
@@ -191,52 +192,52 @@ theme.loadTreeSitter = function ()
 
 	local treesitter = {
 		TSAttribute =               { fg = colors.yellow }, -- (unstable) TODO: docs
-		TSBoolean=                  { fg = colors.orange }, -- For booleans.
+		TSBoolean=                  { fg = colors.purple, style = 'italic' }, -- For booleans.
 		TSCharacter=                { fg = colors.orange }, -- For characters.
 		TSComment=                  { fg = colors.comments, style = styles.comments }, -- For comment blocks.
 		TSConditional =             { fg = colors.purple, style = styles.keywords }, -- For keywords related to conditionnals.
-		TSConstructor =             { fg = colors.blue }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+		TSConstructor =             { fg = colors.cyan }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
 		TSConstant =                { fg = colors.yellow }, -- For constants
 		TSConstBuiltin =            { fg = colors.orange }, -- For constant that are built in the language: `nil` in Lua.
-		TSConstMacro =              { fg = colors.cyan }, -- For constants that are defined by macros: `NULL` in C.
+		TSConstMacro =              { fg = colors.purple, style = 'italic' }, -- For constants that are defined by macros: `NULL` in C.
 		TSError =                   { fg = colors.error }, -- For syntax/parser errors.
 		TSException =               { fg = colors.red }, -- For exception related keywords.
-		TSField =                   { fg = colors.fg }, -- For fields.
+		TSField =                   { fg = colors.white }, -- For fields.
 		TSFloat =                   { fg = colors.orange }, -- For floats.
 		TSFunction =                { fg = colors.blue, style = styles.functions }, -- For fuction (calls and definitions).
-		TSFuncBuiltin =             { fg = colors.cyan, style = styles.functions }, -- For builtin functions: `table.insert` in Lua.
+		TSFuncBuiltin =             { fg = colors.yellow, style = styles.functions }, -- For builtin functions: `table.insert` in Lua.
 		TSFuncMacro =               { fg = colors.blue }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-		TSInclude =                 { fg = colors.cyan }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-		TSKeyword =                 { fg = colors.cyan, style = styles.keywords }, -- For keywords that don't fall in previous categories.
+		TSInclude =                 { fg = colors.purple, style = 'italic' }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+		TSKeyword =                 { fg = colors.purple, style = styles.keywords }, -- For keywords that don't fall in previous categories.
 		TSKeywordFunction =         { fg = colors.purple, style = styles.keywords }, -- For keywords used to define a fuction.
-		TSKeywordOperator =			{ fg = colors.purple }, -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
-		TSKeywordReturn =			{ fg = colors.cyan }, -- return keyword
+		TSKeywordOperator =			{ fg = colors.purple, style = 'italic' }, -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
+		TSKeywordReturn =			{ fg = colors.purple, style = 'italic' }, -- return keyword
 		TSLabel =                   { fg = colors.red }, -- For labels: `label:` in C and `:label:` in Lua.
 		TSMethod =                  { fg = colors.blue, style = styles.functions }, -- For method calls and definitions.
 		TSNamespace =               { fg = colors.yellow }, -- For identifiers referring to modules and namespaces.
 		TSNumber =                  { fg = colors.orange }, -- For all numbers
 		TSOperator =                { fg = colors.cyan }, -- For any operator: `+`, but also `->` and `*` in C.
-		TSParameter =               { fg = colors.paleblue }, -- For parameters of a function.
-		TSParameterReference =      { fg = colors.paleblue }, -- For references to parameters of a function.
+		TSParameter =               { fg = colors.orange }, -- For parameters of a function.
+		TSParameterReference =      { fg = colors.orange }, -- For references to parameters of a function.
 		TSProperty =                { fg = colors.gray }, -- Same as `TSField`,accesing for struct members in C.
 		TSPunctDelimiter =          { fg = colors.cyan }, -- For delimiters ie: `.`
 		TSPunctBracket =            { fg = colors.cyan }, -- For brackets and parens.
 		TSPunctSpecial =            { fg = colors.cyan }, -- For special punctutation that does not fall in the catagories before.
-		TSRepeat =                  { fg = colors.purple, style = styles.keywords }, -- For keywords related to loops.
+		TSRepeat =                  { fg = colors.purple, style = 'italic' }, -- For keywords related to loops.
 	    TSString =                  { fg = colors.green, styles = styles.strings }, -- For strings.
-		TSStringRegex =             { fg = colors.yellow }, -- For regexes.
+		TSStringRegex =             { fg = colors.green }, -- For regexes.
 		TSStringEscape =            { fg = colors.text }, -- For escape characters within a string.
 		TSSymbol =                  { fg = colors.yellow }, -- For identifiers referring to symbols or atoms.
 		TSStrong =					{ fg = colors.paleblue, style = 'bold' }, -- Text to be represented in bold.
-		TSType =                    { fg = colors.purple }, -- For types.
-		TSTypeBuiltin =             { fg = colors.red }, -- For builtin types.
+		TSType =                    { fg = colors.green, style = 'italic' }, -- For types.
+		TSTypeBuiltin =             { fg = colors.green, style = 'italic' }, -- For builtin types.
 		TSTag =                     { fg = colors.red }, -- Tags like html tag names.
 		TSTagDelimiter =            { fg = colors.cyan }, -- Tag delimiter like `<` `>` `/`
 		TSTagAttribute =			{ fg = colors.gray }, -- HTML tag attributes.
-		TSText =                    { fg = colors.fg }, -- For strings considered text in a markup language.
+		TSText =                    { fg = colors.white }, -- For strings considered text in a markup language.
 		TSTextReference =           { fg = colors.yellow }, -- FIXME
-		TSVariable =                { fg = colors.fg, style = styles.variables }, -- Any variable name that does not have another highlight.
-		TSVariableBuiltin =         { fg = colors.fg, style = styles.variables }, -- Variable names that are defined by the languages, like `this` or `self`.
+		TSVariable =                { fg = colors.white, style = styles.variables }, -- Any variable name that does not have another highlight.
+		TSVariableBuiltin =         { fg = colors.purple, style = styles.variables }, -- Variable names that are defined by the languages, like `this` or `self`.
 		TSEmphasis =                { fg = colors.paleblue }, -- For text to be represented with emphasis.
 		TSUnderline =               { fg = colors.fg, style = 'underline' }, -- For text to be represented with an underline.
 		-- TSStrike =                  { fg = colors.fg,, style = 'strikethrough'}, -- For strikethrough text.
