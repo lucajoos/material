@@ -8,20 +8,20 @@ theme.loadSyntax = function ()
     -- Syntax highlight groups
 
 	local syntax = {
-    Text = { fg = colors.white },
-		Type =						{ fg = colors.purple }, -- int, long, char, etc.
-		StorageClass =				{ fg = colors.green }, -- static, register, volatile, etc.
+    		Text = { fg = colors.white },
+		Type =						{ fg = colors.purple, style = 'italic' }, -- int, long, char, etc.
+		StorageClass =					{ fg = colors.green }, -- static, register, volatile, etc.
 		Structure =					{ fg = colors.puple }, -- struct, union, enum, etc.
 		Comment =					{ fg = colors.comments, style = styles.comments }, -- italic comments
-		SpecialComment =			{ fg = colors.comments, style = styles.comments }, -- special things inside a comment
-		Conditional =				{ fg = colors.purple, style = styles.keywords }, -- italic if, then, else, endif, switch, etc.
+		SpecialComment =				{ fg = colors.comments, style = styles.comments }, -- special things inside a comment
+		Conditional =					{ fg = colors.purple, style = styles.keywords }, -- italic if, then, else, endif, switch, etc.
 		Constant =					{ fg = colors.yellow }, -- any constant
 		Character =					{ fg = colors.orange }, -- any character constant: 'c', '\n'
 		Number =					{ fg = colors.orange }, -- a number constant: 5
 		Boolean =					{ fg = colors.purple, style = 'italic' }, -- a boolean constant: TRUE, false
 		Float =						{ fg = colors.orange }, -- a floating point constant: 2.3e10
 		Function =					{ fg = colors.blue }, -- italic funtion names
-		Identifier =				{ fg = colors.white }; -- any variable name
+		Identifier =					{ fg = colors.white }; -- any variable name
 		Statement =					{ fg = colors.cyan }, -- any statement
 		Keyword =					{ fg = colors.purple, style = styles.keywords }, -- italic for, do, while, etc.
 		Label =						{ fg = colors.purple, style = 'italic' }, -- case, default, etc.
@@ -36,11 +36,11 @@ theme.loadSyntax = function ()
 		Repeat =					{ fg = colors.purple, style = styles.keywords }, -- italic any other keyword
 		String =					{ fg = colors.green }, -- any string
 		Special =					{ fg = colors.red }, -- any special symbol
-		SpecialChar =				{ fg = colors.disabled }, -- special character in a constant
+		SpecialChar =					{ fg = colors.disabled }, -- special character in a constant
 		Tag =						{ fg = colors.red }, -- you can use CTRL-] on this
 		Delimiter =					{ fg = colors.cyan }, -- character that needs attention like , or .
 		Debug =						{ fg = colors.red }, -- debugging statements
-		Underlined =				{ fg = colors.link, style = 'underline' }, -- text that stands out, HTML links
+		Underlined =					{ fg = colors.link, style = 'underline' }, -- text that stands out, HTML links
 		Ignore =					{ fg = colors.disabled }, -- left blank, hidden
 		Error =						{ fg = colors.error, style = 'bold,underline' }, -- any erroneous construct
 		Todo =						{ fg = colors.yellow, style = 'bold,italic' }, -- anything that needs extra attention; mostly the keywords TODO HACK FIXME and XXX
@@ -51,12 +51,12 @@ theme.loadSyntax = function ()
 		htmlH3 =					{ fg = colors.green, style = 'bold' },
 		htmlH4 =					{ fg = colors.yellow, style = 'bold' },
 		htmlH5 =					{ fg = colors.purple, style = 'bold' },
-		markdownH1 =				{ fg = colors.cyan, style = 'bold' },
-		markdownH2 =				{ fg = colors.red, style = 'bold' },
-		markdownH3 =				{ fg = colors.green, style = 'bold' },
-		markdownH1Delimiter =		{ fg = colors.cyan },
-		markdownH2Delimiter =		{ fg = colors.red },
-		markdownH3Delimiter =		{ fg = colors.green },
+		markdownH1 =					{ fg = colors.cyan, style = 'bold' },
+		markdownH2 =					{ fg = colors.red, style = 'bold' },
+		markdownH3 =					{ fg = colors.green, style = 'bold' },
+		markdownH1Delimiter =				{ fg = colors.cyan },
+		markdownH2Delimiter =				{ fg = colors.red },
+		markdownH3Delimiter =				{ fg = colors.green },
 	}
 
 	return syntax
@@ -70,25 +70,26 @@ theme.loadEditor = function ()
 	local editor = {
 		Normal =				{ fg = colors.fg }, -- normal text and background color
 		NormalNC =				{ fg = colors.fg }, -- normal text and background color
-		NormalFloat =			{ fg = colors.fg, bg = colors.float }, -- normal text and background color for floating windows
-		NormalContrast =		{ fg = colors.fg, bg = colors.bg_alt }, -- a help group for contrast fileypes
-		FloatBorder =			{ fg = colors.border, bg = colors.float }, -- floating window border
-		ColorColumn =			{ fg = colors.none, bg = colors.active }, --  used for the columns set with 'colorcolumn'
+		NormalFloat =				{ fg = colors.fg, bg = colors.float }, -- normal text and background color for floating windows
+		NormalContrast =			{ fg = colors.fg, bg = colors.bg_alt }, -- a help group for contrast fileypes
+		FloatBorder =				{ fg = colors.border, bg = colors.float }, -- floating window border
+		ColorColumn =				{ fg = colors.none, bg = colors.active }, --  used for the columns set with 'colorcolumn'
 		Conceal =				{ fg = colors.disabled }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor =				{ fg = colors.bg_alt, bg = colors.cursor }, -- the character under the cursor
 		CursorIM =				{ fg = colors.bg_alt, bg = colors.cursor }, -- like Cursor, but used when in IME mode
 		Directory =				{ fg = colors.blue }, -- directory names (and other special names in listings)
 		DiffAdd =				{ fg = colors.green }, -- diff mode: Added line
-		DiffChange =			{ fg = colors.blue }, --  diff mode: Changed line
-		DiffDelete =			{ fg = colors.red }, -- diff mode: Deleted line
+		DiffChange =				{ fg = colors.blue }, --  diff mode: Changed line
+		DiffDelete =				{ fg = colors.red }, -- diff mode: Deleted line
 		DiffText =				{ fg = colors.fg, bg = colors.bg_alt }, -- diff mode: Changed text within a changed line
 		ErrorMsg =				{ fg = colors.error }, -- error messages
 		Folded =				{ fg = colors.disabled, style = 'italic' }, -- line used for closed folds
-		FoldColumn =			{ fg = colors.blue }, -- 'foldcolumn'
+		FoldColumn =				{ fg = colors.blue }, -- 'foldcolumn'
 		IncSearch =				{ fg = colors.title, bg = colors.selection, style = 'underline' }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		LineNr =				{ fg = colors.line_numbers, bg = colors.bg_num }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		CursorLineNr =			{ fg = colors.accent, bg = colors.bg_num }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-		MatchParen =			{ fg = colors.yellow, style = 'bold' }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		MsgArea = 				{ fg = colors.line_numbers, bg = colors.bg_num },
+		CursorLineNr =				{ fg = colors.accent, bg = colors.bg_num }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		MatchParen =				{ fg = colors.yellow, style = 'bold' }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		ModeMsg =				{ fg = colors.accent }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MoreMsg =				{ fg = colors.accent }, -- |more-prompt|
 		NonText =				{ fg = colors.disabled }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
