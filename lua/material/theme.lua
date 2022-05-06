@@ -1,4 +1,4 @@
-local colors = require('material.colors', style = 'bold')
+local colors = require('material.colors')
 local styles = require('material.styles')
 local config = require('material.config').options
 
