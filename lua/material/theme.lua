@@ -10,8 +10,8 @@ theme.loadSyntax = function ()
 	local syntax = {
  		Text                    = { fg = colors.white },
 		Type                    = { fg = colors.purple, style = 'italic' }, -- int, long, char, etc.
-		StorageClass            = { fg = colors.green }, -- static, register, volatile, etc.
-		Structure               = { fg = colors.puple }, -- struct, union, enum, etc.
+		StorageClass            = { fg = colors.fg }, -- static, register, volatile, etc.
+		Structure               = { fg = colors.purple }, -- struct, union, enum, etc.
 		Comment                 = { fg = colors.comments, style = styles.comments }, -- italic comments
 		SpecialComment          = { fg = colors.comments, style = styles.comments }, -- special things inside a comment
 		Conditional             = { fg = colors.purple, style = 'italic' },  -- if, then, else, endif, switch, etc.
@@ -200,9 +200,9 @@ theme.loadTreeSitter = function ()
 		TSConstant = { fg = colors.yellow }, -- For constants
 		TSConstBuiltin = { fg = colors.orange }, -- For constant that are built in the language: `nil` in Lua.
 		TSConstMacro = { fg = colors.purple, style = 'italic' }, -- For constants that are defined by macros: `NULL` in C.
-    TSConditional = { fg = colors.cyan },
+    TSConditional = { fg = colors.purple, style = 'italic' },
     TSError = { fg = colors.error }, -- For syntax/parser errors.
-		TSException = { fg = colors.red }, -- For exception related keywords.
+		TSException = { fg = colors.purple, style = 'italic' }, -- For exception related keywords.
 		TSField = { fg = colors.gray }, -- For fields.
 		TSFloat = { fg = colors.orange }, -- For floats.
 		TSFunction = { fg = colors.blue }, -- For fuction (calls and definitions).
@@ -267,7 +267,26 @@ theme.loadTreeSitter = function ()
     jsonTSBoolean = { fg = colors.orange },
     
     -- JavaScript
-    javascriptConditional = { fg = colors.cyan }
+    javascriptLabel = { fg = colors.purple, style = 'italic' },
+
+    -- CSS 
+    cssTSType = { fg = colors.purple, style = 'italic' },
+    cssTSNumber = { fg = colors.orange},
+    cssTSString = { fg = colors.orange },
+    cssTSOperator = { fg = colors.red },
+    cssTSCommonOperator = { fg = colors.orange },
+    cssClassName = { fg = colors.yellow },
+    cssIdentifier = { fg = colors.purple, style = 'italic'},
+    cssAttributeSelector = { fg = colors.yellow },
+    cssCustomProp = { fg = colors.fg },
+    cssCommonAttr = { fg = colors.orange },
+    cssAttrRegion = { fg = colors.orange },
+    cssBoxAttr = { fg = colors.orange },
+    cssUIAttr = { fg = colors.orange },
+    cssColor = { fg = colors.orange },
+    cssBorderAttr = { fg = colors.orange},
+    cssSelectorOp = { fg = colors.cyan },
+    cssPseudo = { fg = colors.purple, style = 'italic' }
   }
 
 	return treesitter
