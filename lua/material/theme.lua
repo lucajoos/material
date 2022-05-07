@@ -234,11 +234,11 @@ theme.loadTreeSitter = function ()
 		TSTypeBuiltin = { fg = colors.green, style = 'italic' }, -- For builtin types.
 		TSTag = { fg = colors.red }, -- Tags like html tag names.
 		TSTagDelimiter = { fg = colors.cyan }, -- Tag delimiter like `<` `>` `/`
-		TSTagAttribute = { fg = colors.gray }, -- HTML tag attributes.
+		TSTagAttribute = { fg = colors.yellow, style = 'italic' }, -- HTML tag attributes.
 		TSText = { fg = colors.white }, -- For strings considered text in a markup language.
 		TSTextReference = { fg = colors.yellow }, -- FIXME
 		TSVariable = { fg = colors.white, style = styles.variables }, -- Any variable name that does not have another highlight.
-		TSVariableBuiltin = { fg = colors.purple, style = styles.variables }, -- Variable names that are defined by the languages, like `this` or `self`.
+		TSVariableBuiltin = { fg = colors.white }, -- Variable names that are defined by the languages, like `this` or `self`.
 		TSEmphasis = { fg = colors.paleblue }, -- For text to be represented with emphasis.
 		TSUnderline = { fg = colors.fg, style = 'underline' }, -- For text to be represented with an underline.
 		-- TSStrike = { fg = colors.fg,, style = 'strikethrough'}, -- For strikethrough text.
@@ -260,8 +260,14 @@ theme.loadTreeSitter = function ()
     typescriptConditionalParen = { fg = colors.cyan },
     typescriptTernary = { fg = colors.cyan },
     typescriptTernaryOp = { fg = colors.cyan },
-    typescriptIdentifierName = { fg = colors.yellow, style = 'italic' }
-
+    typescriptIdentifierName = { fg = colors.yellow, style = 'italic' },
+     
+    -- JSON
+    jsonTSLabel = { fg = colors.purple },
+    jsonTSBoolean = { fg = colors.orange },
+    
+    -- JavaScript
+    javascriptConditional = { fg = colors.cyan }
   }
 
 	return treesitter
